@@ -1,53 +1,52 @@
 # Honeypot Blocklist
 
-由两台蜜罐传感器自动生成的攻击来源 IP 清单，**每小时更新**，只收录**最近 30 天**内真正发起过攻击的地址。
+**English** · [中文](README.zh-CN.md)
 
-An hourly, automatically generated list of IPs that actually attacked our honeypot sensors in the last 30 days.
+A list of IP addresses that actually attacked our two honeypot sensors, **updated every hour** and limited to the **last 30 days**.
 
-- 展示页 / Web view: https://0x1-so.github.io/honeypot-blocklist/
-- 实时攻击地图 / Live map: https://map.hsd0x1.cc
+- Web view: https://0x1-so.github.io/honeypot-blocklist/
+- Live attack map: https://map.hsd0x1.cc
 
-## 文件 / Files
+## Files
 
-| 文件 | 内容 |
+| File | Contents |
 |---|---|
-| [`blocklist.txt`](blocklist.txt) | **主动攻击源**：机房、VPS、代理等，基本是攻击者自己控制的机器。可以直接拿去封。 |
-| [`infected-devices.txt`](infected-devices.txt) | **疑似被感染的设备**：家用/企业宽带上、表现出 Mirai 类物联网木马行为的地址（见下）。主人多半不知情，建议短期封或只用于告警。 |
-| [`all.txt`](all.txt) | 上面两份合在一起。 |
-| [`attackers.csv`](attackers.csv) | 每个地址的明细：首次/最后出现时间、攻击类型、协议、国家、ASN、事件数、捕获样本的 SHA-256。 |
-| [`samples-sha256.txt`](samples-sha256.txt) | 攻击者在蜜罐里下载或写出的文件的 SHA-256（只存不执行）。 |
-| [`data.json`](data.json) | 展示页用的数据，含更新时间。 |
+| [`blocklist.txt`](blocklist.txt) | **Attack sources**: datacenters, VPS and proxies, mostly machines the attackers control themselves. Safe to block. |
+| [`infected-devices.txt`](infected-devices.txt) | **Likely infected devices**: residential or business lines showing Mirai-style IoT malware behaviour (see below). The owners usually don't know; consider a short block or alerting only. |
+| [`all.txt`](all.txt) | Both lists combined. |
+| [`attackers.csv`](attackers.csv) | Per address: first and last seen, activity, protocols, country, ASN, event count, SHA-256 of captured samples. |
+| [`samples-sha256.txt`](samples-sha256.txt) | SHA-256 of files attackers downloaded or wrote on the honeypots (stored, never executed). |
+| [`data.json`](data.json) | Data for the web view, including the update time. |
 
-`.txt` 文件每行一个 IP，`#` 开头的是注释，可以直接喂给 ipset、fail2ban、防火墙等。
+The `.txt` files hold one IP per line; lines starting with `#` are comments. They can be fed directly to ipset, fail2ban, firewalls and so on.
 
-## 收录标准 / What gets listed
+## What gets listed
 
-只收录**动了手**的地址：
+Only addresses that **actually attacked**:
 
-- SSH / Telnet 登录尝试（爆破）
-- 登录后执行命令
-- 下载或上传恶意文件
-- 对假数据库、缓存等服务撞库（必须带了密码；只有这一种行为的地址，至少要 3 次才收录。远程桌面这类协议光是发起连接就会带上用户名，扫描器连一下就会触发，不算攻击）
-- 试图建立端口转发隧道
+- SSH / Telnet login attempts (brute force)
+- Commands run after logging in
+- Malicious files downloaded or uploaded
+- Credential stuffing against fake databases, caches and similar services (a password must be sent; an address whose only activity is this needs at least 3 attempts. Protocols like remote desktop include a user name in the bare connection request, so a scanner merely connecting doesn't count)
+- Attempts to open port-forwarding tunnels
 
-**不收录**只做端口扫描或网页探测的地址——Shodan、Censys 这类研究扫描器每天都在做这些，把它们列进来只会误伤。
+Addresses that **only scan ports or probe web paths are not listed**. Research scanners such as Shodan and Censys do that all day, and listing them would only cause false positives.
 
-## 两份清单怎么分 / How the two lists are split
+## How the two lists are split
 
-如果一个地址**同时满足**以下几点，就放进 `infected-devices.txt`，否则放进 `blocklist.txt`：
+An address goes into `infected-devices.txt` when **all** of the following hold, otherwise into `blocklist.txt`:
 
-1. 行为像物联网木马：走 Telnet，或执行了 `busybox` 一类命令（Mirai 及其变种的典型手法）；
-2. 所在网络不是机房 / 云服务器；
-3. 也不是代理 / VPN / Tor。
+1. It behaves like IoT malware: it uses Telnet or runs commands like `busybox` (the typical Mirai approach);
+2. Its network is not a datacenter or cloud provider;
+3. It is not a proxy, VPN or Tor exit.
 
-这是根据网络类型和行为特征的**推断**，不保证百分之百准确。
+This is an **inference** from network type and behaviour, not a certainty.
 
-## 时效与移除 / Expiry and removal
+## Expiry and removal
 
-- 地址 30 天内没有再出现，就会自动从清单里移除。
-- 家用宽带的 IP 会更换主人，设备也会被修好。如果你认为某个地址被误列（例如它属于你、而且已经清理干净），请[开一个 issue](../../issues)。
+- An address that hasn't been seen for 30 days drops off the lists automatically.
+- Residential IPs change hands and devices get cleaned up. If you think an address is listed by mistake (for example it is yours and has been cleaned), please [open an issue](../../issues).
 
-## 声明 / Disclaimer
+## Disclaimer
 
-数据按原样提供，不作任何担保。蜜罐只被动记录，不会对任何来源发起连接、扫描或攻击。
 Provided as-is, without warranty. The sensors only record passively and never connect back to, scan or attack any source.

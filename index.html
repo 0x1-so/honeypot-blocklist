@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,11 @@
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
 .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; }
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
 h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: -.01em; }
+.lang { display: flex; gap: 4px; flex: none; }
+.lang button { border: 1px solid var(--line); background: var(--panel); color: var(--muted); padding: 4px 10px; border-radius: 6px; font: inherit; font-size: 13px; cursor: pointer; }
+.lang button.on { color: var(--text); border-color: var(--accent); }
 .sub { color: var(--muted); margin: 0 0 22px; }
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 22px; }
 .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
@@ -44,67 +48,109 @@ td.ip { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 </head>
 <body>
 <div class="wrap">
-  <h1>Honeypot Blocklist</h1>
-  <p class="sub">最近 30 天真正攻击过蜜罐的 IP，每小时自动更新 · <span id="updated">加载中…</span> · <a href="https://map.hsd0x1.cc">实时攻击地图</a></p>
+  <div class="top">
+    <h1>Honeypot Blocklist</h1>
+    <div class="lang" id="lang"><button data-l="zh">中文</button><button data-l="en">English</button></div>
+  </div>
+  <p class="sub"><span data-i18n="sub"></span> · <span id="updated"></span> · <a href="https://map.hsd0x1.cc" data-i18n="map"></a></p>
 
   <div class="stats">
-    <div class="stat"><b id="n-att">–</b><span>主动攻击源</span><br><a href="blocklist.txt">blocklist.txt</a></div>
-    <div class="stat"><b id="n-dev">–</b><span>疑似被感染的设备</span><br><a href="infected-devices.txt">infected-devices.txt</a></div>
-    <div class="stat"><b id="n-smp">–</b><span>捕获的样本</span><br><a href="samples-sha256.txt">samples-sha256.txt</a></div>
-    <div class="stat"><b>CSV</b><span>全部明细</span><br><a href="attackers.csv">attackers.csv</a> · <a href="all.txt">all.txt</a></div>
+    <div class="stat"><b id="n-att">–</b><span data-i18n="attackers"></span><br><a href="blocklist.txt">blocklist.txt</a></div>
+    <div class="stat"><b id="n-dev">–</b><span data-i18n="devices"></span><br><a href="infected-devices.txt">infected-devices.txt</a></div>
+    <div class="stat"><b id="n-smp">–</b><span data-i18n="samples"></span><br><a href="samples-sha256.txt">samples-sha256.txt</a></div>
+    <div class="stat"><b>CSV</b><span data-i18n="details"></span><br><a href="attackers.csv">attackers.csv</a> · <a href="all.txt">all.txt</a></div>
   </div>
 
   <div class="bar">
     <div class="tabs" id="tabs">
-      <button data-f="all" class="on">全部</button><button data-f="attacker">主动攻击源</button><button data-f="infected-device">被感染设备</button>
+      <button data-f="all" class="on" data-i18n="all"></button><button data-f="attacker" data-i18n="attackers"></button><button data-f="infected-device" data-i18n="devicesShort"></button>
     </div>
-    <input id="q" type="search" placeholder="搜索 IP、国家、ASN…" aria-label="搜索">
+    <input id="q" type="search">
   </div>
 
   <div class="tablewrap">
     <table>
-      <thead><tr><th>IP</th><th>类别</th><th>攻击类型</th><th>国家</th><th>ASN</th><th>最后出现</th><th>事件</th></tr></thead>
-      <tbody id="rows"><tr><td colspan="7" class="empty">加载中…</td></tr></tbody>
+      <thead><tr><th>IP</th><th data-i18n="colList"></th><th data-i18n="colAct"></th><th data-i18n="colCountry"></th><th>ASN</th><th data-i18n="colLast"></th><th data-i18n="colEvents"></th></tr></thead>
+      <tbody id="rows"></tbody>
     </table>
   </div>
 
-  <p class="note">只收录动了手的地址（登录爆破、执行命令、下载木马、对假服务撞库）；只做端口扫描和网页探测的不收录。
-    "被感染设备"是根据网络类型和行为推断的，设备主人多半不知情。误列请<a href="https://github.com/0x1-so/honeypot-blocklist/issues">开 issue</a>。
-    说明见 <a href="https://github.com/0x1-so/honeypot-blocklist#readme">README</a>。</p>
+  <p class="note" id="note"></p>
 </div>
 <script>
-const ACT = { 'login': '登录爆破', 'shell-commands': '执行命令', 'malware-download': '下载木马', 'malware-upload': '上传文件',
-  'service-bruteforce': '服务撞库', 'tunnel': '端口转发' };
-const LIST = { 'attacker': '主动攻击源', 'infected-device': '被感染设备' };
-let data = [], filter = 'all';
+const T = {
+  zh: {
+    sub: '最近 30 天真正攻击过蜜罐的 IP，每小时自动更新', map: '实时攻击地图', loading: '加载中…',
+    updated: d => `更新于 ${d.toLocaleString('zh-CN', { hour12: false })}`,
+    attackers: '主动攻击源', devices: '疑似被感染的设备', devicesShort: '被感染设备', samples: '捕获的样本', details: '全部明细', all: '全部',
+    search: '搜索 IP、国家、ASN…', colList: '类别', colAct: '攻击类型', colCountry: '国家', colLast: '最后出现', colEvents: '事件',
+    none: '没有匹配的地址', nodata: '还没有数据，第一次生成后就会出现',
+    act: { 'login': '登录爆破', 'shell-commands': '执行命令', 'malware-download': '下载木马', 'malware-upload': '上传文件', 'service-bruteforce': '服务撞库', 'tunnel': '端口转发' },
+    list: { 'attacker': '主动攻击源', 'infected-device': '被感染设备' }, sep: '、',
+    ago: s => s < 3600 ? `${Math.max(1, Math.floor(s / 60))} 分钟前` : s < 86400 ? `${Math.floor(s / 3600)} 小时前` : `${Math.floor(s / 86400)} 天前`,
+    note: '只收录动了手的地址（登录爆破、执行命令、下载木马、对假服务撞库）；只做端口扫描和网页探测的不收录。“被感染设备”是根据网络类型和行为推断的，设备主人多半不知情。误列请<a href="https://github.com/0x1-so/honeypot-blocklist/issues">开 issue</a>。说明见 <a href="https://github.com/0x1-so/honeypot-blocklist/blob/main/README.zh-CN.md">README</a>。'
+  },
+  en: {
+    sub: 'IPs that actually attacked our honeypots in the last 30 days, updated hourly', map: 'Live attack map', loading: 'Loading…',
+    updated: d => `updated ${d.toLocaleString('en-GB', { hour12: false })}`,
+    attackers: 'Attack sources', devices: 'Likely infected devices', devicesShort: 'Infected devices', samples: 'Captured samples', details: 'Full details', all: 'All',
+    search: 'Search IP, country, ASN…', colList: 'List', colAct: 'Activity', colCountry: 'Country', colLast: 'Last seen', colEvents: 'Events',
+    none: 'No matching addresses', nodata: 'No data yet. It appears after the first update.',
+    act: { 'login': 'login brute force', 'shell-commands': 'shell commands', 'malware-download': 'malware download', 'malware-upload': 'file upload', 'service-bruteforce': 'service brute force', 'tunnel': 'port forwarding' },
+    list: { 'attacker': 'attack source', 'infected-device': 'infected device' }, sep: ', ',
+    ago: s => s < 3600 ? `${Math.max(1, Math.floor(s / 60))} min ago` : s < 86400 ? `${Math.floor(s / 3600)} h ago` : `${Math.floor(s / 86400)} d ago`,
+    note: 'Only addresses that actually attacked are listed (login brute force, shell commands, malware downloads, credential stuffing against fake services); port scans and web probes alone are not. “Infected devices” are inferred from network type and behaviour, and their owners usually don\'t know. Listed by mistake? <a href="https://github.com/0x1-so/honeypot-blocklist/issues">Open an issue</a>. Details in the <a href="https://github.com/0x1-so/honeypot-blocklist#readme">README</a>.'
+  }
+};
+const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+let lang = store.get('lang') || ((navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+let data = null, filter = 'all';
 const $ = id => document.getElementById(id);
 const td = (text, cls) => { const e = document.createElement('td'); if (cls) e.className = cls; e.textContent = text; return e; };
-const ago = iso => { const s = (Date.now() - Date.parse(iso)) / 1000; return s < 3600 ? `${Math.max(1, Math.floor(s / 60))} 分钟前` : s < 86400 ? `${Math.floor(s / 3600)} 小时前` : `${Math.floor(s / 86400)} 天前`; };
+const emptyRow = text => { const tr = document.createElement('tr'), c = td(text, 'empty'); c.colSpan = 7; tr.append(c); return tr; };
+
+function applyLang() {
+  const t = T[lang];
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(e => { e.textContent = t[e.dataset.i18n]; });
+  document.querySelectorAll('#lang button').forEach(b => b.classList.toggle('on', b.dataset.l === lang));
+  $('q').placeholder = t.search; $('q').setAttribute('aria-label', t.search);
+  $('note').innerHTML = t.note;
+  $('updated').textContent = data ? t.updated(new Date(data.generated)) : t.loading;
+  render();
+}
+
 function render() {
-  const q = $('q').value.trim().toLowerCase(), body = $('rows');
-  const rows = data.filter(r => (filter === 'all' || r.list === filter) &&
-    (!q || [r.ip, r.cc, r.country, r.asn].join(' ').toLowerCase().includes(q)));
+  const t = T[lang], body = $('rows');
   body.replaceChildren();
-  if (!rows.length) { const tr = document.createElement('tr'); tr.append(td('没有匹配的地址', 'empty')); tr.firstChild.colSpan = 7; body.append(tr); return; }
+  if (!data) { body.append(emptyRow(t.loading)); return; }
+  const q = $('q').value.trim().toLowerCase();
+  const rows = data.rows.filter(r => (filter === 'all' || r.list === filter) &&
+    (!q || [r.ip, r.cc, r.country, r.asn].join(' ').toLowerCase().includes(q)));
+  if (!rows.length) { body.append(emptyRow(t.none)); return; }
   for (const r of rows) {
     const tr = document.createElement('tr'), tag = document.createElement('span'), cat = td('');
-    tag.className = `tag ${r.list}`; tag.textContent = LIST[r.list] || r.list; cat.append(tag);
-    tr.append(td(r.ip, 'ip'), cat, td(r.activity.map(a => ACT[a] || a).join('、'), 'act'),
-      td([r.cc, r.country].filter(Boolean).join(' ') || '—'), td(r.asn || '—'), td(ago(r.last)), td(String(r.events)));
+    tag.className = `tag ${r.list}`; tag.textContent = t.list[r.list] || r.list; cat.append(tag);
+    // the country name in data.json is Chinese; the English view shows the country code only
+    const country = lang === 'zh' ? [r.cc, r.country].filter(Boolean).join(' ') : r.cc;
+    tr.append(td(r.ip, 'ip'), cat, td(r.activity.map(a => t.act[a] || a).join(t.sep), 'act'),
+      td(country || '—'), td(r.asn || '—'), td(t.ago((Date.now() - Date.parse(r.last)) / 1000)), td(String(r.events)));
     body.append(tr);
   }
 }
+
+$('lang').onclick = e => { const b = e.target.closest('button'); if (!b) return; lang = b.dataset.l; store.set('lang', lang); applyLang(); };
 $('tabs').onclick = e => {
   const b = e.target.closest('button'); if (!b) return;
   filter = b.dataset.f; document.querySelectorAll('#tabs button').forEach(x => x.classList.toggle('on', x === b)); render();
 };
 $('q').oninput = render;
+applyLang();
 fetch('data.json', { cache: 'no-store' }).then(r => r.json()).then(d => {
-  data = d.rows;
+  data = d;
   $('n-att').textContent = d.counts.attacker; $('n-dev').textContent = d.counts['infected-device']; $('n-smp').textContent = d.counts.samples;
-  $('updated').textContent = `更新于 ${new Date(d.generated).toLocaleString('zh-CN', { hour12: false })}`;
-  render();
-}).catch(() => { $('rows').innerHTML = '<tr><td colspan="7" class="empty">还没有数据，第一次生成后就会出现</td></tr>'; });
+  applyLang();
+}).catch(() => { $('rows').replaceChildren(emptyRow(T[lang].nodata)); });
 </script>
 </body>
 </html>
