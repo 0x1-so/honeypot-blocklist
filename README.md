@@ -27,7 +27,7 @@ An hourly, automatically generated list of IPs that actually attacked our honeyp
 - SSH / Telnet 登录尝试（爆破）
 - 登录后执行命令
 - 下载或上传恶意文件
-- 对假数据库、缓存等服务撞库
+- 对假数据库、缓存等服务撞库（只有这一种行为的地址，至少要 3 次才收录，避免把扫描器握手时顺带的一次默认登录算进来）
 - 试图建立端口转发隧道
 
 **不收录**只做端口扫描或网页探测的地址——Shodan、Censys 这类研究扫描器每天都在做这些，把它们列进来只会误伤。
