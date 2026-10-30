@@ -1,5 +1,5 @@
 # Likely infected devices (residential/business lines with Mirai-style behaviour)
-# 118 addresses seen within the last 30 days (update time: data.json)
+# 122 addresses seen within the last 30 days (update time: data.json)
 # source: two honeypot sensors, see README.md for what gets an address listed
 1.206.44.242
 2.180.174.122
@@ -23,6 +23,7 @@
 42.229.67.14
 45.129.249.37
 45.182.120.112
+45.183.208.232
 45.226.5.13
 46.187.21.36
 47.16.160.221
@@ -36,6 +37,7 @@
 69.245.146.55
 76.34.11.11
 77.53.231.107
+79.56.128.247
 80.94.250.138
 81.172.251.250
 82.89.127.12
@@ -93,6 +95,7 @@
 183.107.31.28
 185.83.86.85
 185.151.86.110
+186.127.56.10
 186.192.15.37
 187.204.114.199
 190.52.38.103
@@ -100,6 +103,7 @@
 190.183.193.170
 190.195.167.186
 190.237.25.130
+190.247.37.104
 193.90.12.122
 194.44.90.76
 201.218.84.210
