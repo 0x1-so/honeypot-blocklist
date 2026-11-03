@@ -1,11 +1,17 @@
 ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha256
-77.239.124.145,attacker,2026-11-03T13:04:16Z,2026-11-03T14:02:12Z,login shell-commands,ssh,FR,AS198364 BANATSYNC SRL,605,
-2.57.122.209,attacker,2026-10-29T05:40:44Z,2026-11-03T14:02:07Z,login shell-commands,ssh,NL,AS47890 UNMANAGED LTD,344,
-77.239.124.157,attacker,2026-10-30T14:40:59Z,2026-11-03T14:01:33Z,login shell-commands,ssh,FR,AS198364 BANATSYNC SRL,1724,
-202.165.25.8,attacker,2026-10-29T11:00:54Z,2026-11-03T14:00:00Z,login shell-commands,ssh,MY,AS18206 TM TECHNOLOGY SERVICES SDN. BHD.,1636,
+77.239.124.145,attacker,2026-11-03T13:04:16Z,2026-11-03T15:00:28Z,login shell-commands,ssh,FR,AS198364 BANATSYNC SRL,1203,
+202.165.25.8,attacker,2026-10-29T11:00:54Z,2026-11-03T15:00:20Z,login shell-commands,ssh,MY,AS18206 TM TECHNOLOGY SERVICES SDN. BHD.,1649,
+77.239.124.157,attacker,2026-10-30T14:40:59Z,2026-11-03T15:00:03Z,login shell-commands,ssh,FR,AS198364 BANATSYNC SRL,2283,
+2.57.122.209,attacker,2026-10-29T05:40:44Z,2026-11-03T14:59:43Z,login shell-commands,ssh,NL,AS47890 UNMANAGED LTD,465,
+80.94.95.118,attacker,2026-10-30T18:40:25Z,2026-11-03T14:51:12Z,login tunnel,ssh,BG,AS204428 SS-Net,58,
+150.241.66.127,attacker,2026-11-03T13:17:28Z,2026-11-03T14:49:35Z,service-bruteforce,mysql,DE,AS210457 Kyonix Networks Limited,4,
+143.198.208.150,attacker,2026-10-29T05:56:54Z,2026-11-03T14:47:01Z,login shell-commands,telnet,SG,"AS14061 DigitalOcean, LLC",700,
+93.123.109.109,attacker,2026-10-31T12:33:22Z,2026-11-03T14:38:29Z,service-bruteforce,vnc,AD,AS48090 TECHOFF SRV LIMITED,90,
+202.75.29.194,infected-device,2026-11-03T14:15:02Z,2026-11-03T14:18:07Z,login shell-commands,telnet,ID,AS138871 PT. Trans Indonesia Superkoridor,42,
+103.131.61.163,infected-device,2026-10-30T20:12:50Z,2026-11-03T14:14:31Z,login shell-commands,telnet,ID,AS138126 PT. NEWTON CIPTA INFORMATIKA,94,
+200.81.166.218,infected-device,2026-11-03T14:06:51Z,2026-11-03T14:07:37Z,login malware-download shell-commands,telnet,AR,AS10617 SION S.A,34,b9b17c4bfb3a6a9057922c57a60a991b968692dd5e62f097409f63b9e81f2531
 193.46.255.86,attacker,2026-10-29T14:22:28Z,2026-11-03T13:51:12Z,login tunnel,ssh,GB,AS47890 UNMANAGED LTD,365,
 80.73.14.192,infected-device,2026-11-03T13:51:01Z,2026-11-03T13:51:01Z,login,telnet,UA,AS13188 CONTENT DELIVERY NETWORK LTD,1,
-93.123.109.109,attacker,2026-10-31T12:33:22Z,2026-11-03T13:50:04Z,service-bruteforce,vnc,AD,AS48090 TECHOFF SRV LIMITED,88,
 64.89.163.93,attacker,2026-11-03T13:49:34Z,2026-11-03T13:49:35Z,service-bruteforce,mysql,DE,"AS401626 Netiface America, Inc.",3,
 2.57.121.112,attacker,2026-10-29T15:44:16Z,2026-11-03T13:41:10Z,login,ssh,GB,AS47890 UNMANAGED LTD,745,
 153.246.198.45,infected-device,2026-11-03T13:35:01Z,2026-11-03T13:37:52Z,login shell-commands,telnet,JP,"AS4713 NTT DOCOMO BUSINESS,Inc.",28,
@@ -37,7 +43,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 187.64.26.251,infected-device,2026-11-02T01:30:05Z,2026-11-03T11:18:14Z,login malware-download shell-commands,telnet,BR,AS28573 Claro NXT Telecomunicacoes Ltda,3801,3291e8e946d0590bac147a6af954e2fe08b283385f3a68848f01742325a0079b 491e790571415b60bcefa01da7262b46d1dd2b0fa40613e83aeb9acd78b23583 4f3258fe1ea18f6810faddc0dd33efaf08db63950baefac2a8b7f5017c1a6de2 fb43ab69b740ac0a5c3e109648c32f8881f77a26924a4cb0b6f94a82a48b9ac1
 138.226.239.233,attacker,2026-10-30T01:09:00Z,2026-11-03T11:15:58Z,login tunnel,ssh,NL,AS44589 admin@ntservers.pro,69,
 91.221.219.2,infected-device,2026-11-03T11:12:39Z,2026-11-03T11:12:39Z,login,telnet,UA,AS197522 Kaluska informatsiyna merezha LLC,1,
-143.198.208.150,attacker,2026-10-29T05:56:54Z,2026-11-03T11:11:34Z,login shell-commands,telnet,SG,"AS14061 DigitalOcean, LLC",693,
 39.116.247.68,attacker,2026-11-03T11:10:54Z,2026-11-03T11:11:00Z,login malware-upload shell-commands,ssh,KR,AS9318 SK Broadband Co Ltd,6,6d1fe6ab3cd04ca5d1ab790339ee2b6577553bc042af3b7587ece0c195267c9b
 114.32.230.81,infected-device,2026-11-03T10:57:14Z,2026-11-03T10:58:00Z,login malware-download shell-commands,telnet,TW,AS3462 Data Communication Business Group,34,b9b17c4bfb3a6a9057922c57a60a991b968692dd5e62f097409f63b9e81f2531
 213.209.159.115,attacker,2026-10-29T08:25:20Z,2026-11-03T10:57:53Z,service-bruteforce,mysql,DE,AS208137 Feo Prest SRL,3834,
@@ -57,7 +62,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 37.52.110.60,infected-device,2026-11-03T09:07:36Z,2026-11-03T09:07:36Z,login,telnet,UA,"AS6849 JSC ""Ukrtelecom""",1,
 85.11.167.123,attacker,2026-11-03T09:02:30Z,2026-11-03T09:02:30Z,login,ssh,NL,AS197170 TechTies Inc.,1,
 121.147.220.27,infected-device,2026-10-31T04:46:23Z,2026-11-03T08:50:47Z,login shell-commands,telnet,KR,AS4766 Korea Telecom,102,
-80.94.95.118,attacker,2026-10-30T18:40:25Z,2026-11-03T08:44:30Z,login tunnel,ssh,BG,AS204428 SS-Net,57,
 185.191.165.54,infected-device,2026-11-03T08:38:37Z,2026-11-03T08:38:46Z,login shell-commands,telnet,XK,AS206262 TelKos L.L.C,38,
 2.27.20.148,attacker,2026-11-03T04:32:15Z,2026-11-03T08:37:34Z,login shell-commands,ssh,DE,AS215439 PLAY2GO INTERNATIONAL LIMITED,9282,
 103.141.4.12,infected-device,2026-11-03T08:35:20Z,2026-11-03T08:35:29Z,login,telnet,PK,AS139302 Ashiq Cable Network (Pvt.) Limited,3,
@@ -216,7 +220,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 50.6.23.110,attacker,2026-11-02T12:05:38Z,2026-11-02T12:17:09Z,login,ssh,US,AS31898 Oracle Corporation,5,
 93.177.151.72,infected-device,2026-11-02T01:54:06Z,2026-11-02T12:16:23Z,login shell-commands,telnet,GE,AS16010 Magticom Ltd.,78,
 79.3.96.178,attacker,2026-11-02T12:05:34Z,2026-11-02T12:16:19Z,login,ssh,IT,AS3269 Telecom Italia S.p.A.,5,
-103.131.61.163,infected-device,2026-10-30T20:12:50Z,2026-11-02T12:07:58Z,login shell-commands,telnet,ID,AS138126 PT. NEWTON CIPTA INFORMATIKA,87,
 39.49.123.24,infected-device,2026-11-02T11:31:09Z,2026-11-02T11:31:16Z,login shell-commands,telnet,PK,AS17557 Pakistan Telecommunication Company Limited,38,
 103.137.17.191,infected-device,2026-11-02T11:24:27Z,2026-11-02T11:24:36Z,login shell-commands,telnet,IN,AS138711 Digital Info Systems,38,
 91.102.177.61,infected-device,2026-11-02T11:21:30Z,2026-11-02T11:21:40Z,login,telnet,UA,AS196824 SE: Pugachevskaya Vera Vladimirovna,2,
