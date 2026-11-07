@@ -1,5 +1,5 @@
 # All attack sources (blocklist.txt + infected-devices.txt)
-# 1719 addresses seen within the last 30 days (update time: data.json)
+# 1722 addresses seen within the last 30 days (update time: data.json)
 # source: two honeypot sensors, see README.md for what gets an address listed
 1.162.226.183
 1.169.225.160
@@ -1042,6 +1042,7 @@
 129.121.139.228
 129.121.140.56
 129.121.140.234
+129.121.143.26
 129.121.143.33
 129.121.143.66
 129.121.143.242
@@ -1302,6 +1303,7 @@
 178.120.148.62
 178.131.72.216
 178.134.70.5
+178.141.178.24
 178.141.242.104
 178.158.221.135
 178.159.209.7
@@ -1317,6 +1319,7 @@
 179.43.153.10
 179.43.153.18
 179.43.182.115
+179.48.103.121
 179.49.209.87
 179.51.86.84
 179.51.153.37
