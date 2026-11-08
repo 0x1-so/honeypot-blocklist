@@ -1,5 +1,5 @@
 # Attack sources (datacenter, VPS, proxy or unclassified)
-# 981 addresses seen within the last 30 days (update time: data.json)
+# 983 addresses seen within the last 30 days (update time: data.json)
 # source: two honeypot sensors, see README.md for what gets an address listed
 1.162.226.183
 1.234.80.94
@@ -98,6 +98,7 @@
 36.139.161.140
 36.140.151.122
 36.213.1.81
+36.255.97.39
 37.60.253.125
 37.60.253.219
 37.120.213.13
@@ -488,6 +489,7 @@
 109.160.32.35
 109.160.32.47
 109.160.32.48
+109.160.32.49
 109.160.32.112
 109.160.32.114
 109.160.32.119
