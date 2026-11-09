@@ -1,22 +1,31 @@
 ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha256
-92.205.109.198,attacker,2026-11-03T22:54:45Z,2026-11-09T04:02:25Z,service-bruteforce,vnc,FR,AS21499 Host Europe GmbH,7392,
-109.160.32.144,attacker,2026-11-09T02:47:22Z,2026-11-09T04:02:13Z,login shell-commands,ssh,NL,AS198364 BANATSYNC SRL,709,
-167.172.66.238,attacker,2026-11-08T13:25:01Z,2026-11-09T04:02:10Z,login shell-commands,telnet,SG,"AS14061 DigitalOcean, LLC",7730,
-195.178.110.232,attacker,2026-10-30T10:09:49Z,2026-11-09T04:01:15Z,login malware-upload shell-commands,ssh,AD,AS48090 TECHOFF SRV LIMITED,1353,a151d3f4f2422531f30a843ffb35479596c86722bb103bdf8591105687f9b125 c69d65e5466e0250397b496ae02437f15d1eb0e0798cc40e5b271c3c3d08f5ba
-20.3.253.156,attacker,2026-11-05T20:23:11Z,2026-11-09T04:00:21Z,login shell-commands,ssh,US,AS8075 Microsoft Corporation,1168,
-193.187.110.160,attacker,2026-11-06T03:11:20Z,2026-11-09T03:59:40Z,login tunnel,ssh,TR,AS153947 FAST ZONE IT,38,
-202.165.25.8,attacker,2026-10-29T11:00:54Z,2026-11-09T03:57:46Z,login shell-commands,ssh,MY,AS18206 TM TECHNOLOGY SERVICES SDN. BHD.,3582,
-2.229.200.226,attacker,2026-11-09T02:19:56Z,2026-11-09T03:54:47Z,login malware-download shell-commands,ssh,IT,AS12874 Fastweb SpA,29,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
+167.172.66.238,attacker,2026-11-08T13:25:01Z,2026-11-09T06:00:06Z,login shell-commands,telnet,SG,"AS14061 DigitalOcean, LLC",7985,
+92.205.109.198,attacker,2026-11-03T22:54:45Z,2026-11-09T05:59:20Z,service-bruteforce,vnc,FR,AS21499 Host Europe GmbH,7527,
+93.123.109.109,attacker,2026-10-31T12:33:22Z,2026-11-09T05:57:22Z,service-bruteforce,vnc,AD,AS48090 TECHOFF SRV LIMITED,422,
+20.3.253.156,attacker,2026-11-05T20:23:11Z,2026-11-09T05:56:36Z,login shell-commands,ssh,US,AS8075 Microsoft Corporation,1196,
+202.165.25.8,attacker,2026-10-29T11:00:54Z,2026-11-09T05:56:04Z,login shell-commands,ssh,MY,AS18206 TM TECHNOLOGY SERVICES SDN. BHD.,3612,
+193.24.211.219,attacker,2026-11-03T01:25:16Z,2026-11-09T05:50:44Z,login tunnel,ssh,HK,AS215929 Data Campus Limited,81,
+2.57.121.25,attacker,2026-10-29T14:26:03Z,2026-11-09T05:47:10Z,login,ssh,GB,AS47890 UNMANAGED LTD,1167,
+193.187.110.160,attacker,2026-11-06T03:11:20Z,2026-11-09T05:47:04Z,login tunnel,ssh,TR,AS153947 FAST ZONE IT,44,
+36.64.173.122,infected-device,2026-11-09T05:39:04Z,2026-11-09T05:39:06Z,login,telnet,ID,AS7713 PT Telekomunikasi Indonesia,3,
+143.110.153.215,attacker,2026-10-29T12:16:43Z,2026-11-09T05:38:59Z,login shell-commands,telnet,US,"AS14061 DigitalOcean, LLC",265,
+138.199.15.161,attacker,2026-11-01T15:00:35Z,2026-11-09T05:34:49Z,service-bruteforce,vnc,FR,AS60068 Datacamp Limited,44,
+45.88.217.82,attacker,2026-11-09T05:15:51Z,2026-11-09T05:31:52Z,login service-bruteforce,ftp mysql ssh,US,AS206092 F.N.S. HOLDINGS LIMITED,35,
+85.11.167.7,attacker,2026-10-29T04:39:35Z,2026-11-09T05:30:11Z,service-bruteforce,postgres,NL,AS197170 TechTies Inc.,653,
+2.57.121.112,attacker,2026-10-29T15:44:16Z,2026-11-09T05:07:03Z,login,ssh,GB,AS47890 UNMANAGED LTD,1385,
+109.160.32.144,attacker,2026-11-09T02:47:22Z,2026-11-09T05:00:31Z,login shell-commands,ssh,NL,AS198364 BANATSYNC SRL,1252,
+81.24.135.206,infected-device,2026-11-09T04:52:40Z,2026-11-09T04:53:03Z,login shell-commands,telnet,RU,AS20632 PJSC MegaFon,50,
+195.178.110.232,attacker,2026-10-30T10:09:49Z,2026-11-09T04:48:28Z,login malware-upload shell-commands,ssh,AD,AS48090 TECHOFF SRV LIMITED,1385,a151d3f4f2422531f30a843ffb35479596c86722bb103bdf8591105687f9b125 c69d65e5466e0250397b496ae02437f15d1eb0e0798cc40e5b271c3c3d08f5ba
+65.49.1.172,attacker,2026-11-01T02:03:47Z,2026-11-09T04:39:22Z,login,telnet,US,AS6939 Hurricane Electric LLC,9,
+79.72.59.54,attacker,2026-11-09T04:33:49Z,2026-11-09T04:33:56Z,login shell-commands,ssh,ES,AS31898 Oracle Corporation,12,
+118.193.45.134,attacker,2026-11-09T04:24:40Z,2026-11-09T04:24:55Z,login malware-download shell-commands,ssh,HK,AS135377 UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED,23,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
+185.87.121.1,attacker,2026-11-06T04:10:57Z,2026-11-09T04:19:32Z,login tunnel,ssh,TR,AS153810 MDN TECHNOLOGY LTD,53,
+2.229.200.226,attacker,2026-11-09T02:19:56Z,2026-11-09T04:02:56Z,login malware-download shell-commands,ssh,IT,AS12874 Fastweb SpA,30,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
+85.11.167.125,attacker,2026-11-03T13:04:26Z,2026-11-09T04:02:46Z,login shell-commands,ssh,NL,AS197170 TechTies Inc.,50,
 2.57.122.150,attacker,2026-10-31T13:01:22Z,2026-11-09T03:48:56Z,login malware-upload shell-commands,ssh,NL,AS47890 UNMANAGED LTD,324,a151d3f4f2422531f30a843ffb35479596c86722bb103bdf8591105687f9b125
 211.253.9.49,attacker,2026-11-09T02:23:02Z,2026-11-09T03:40:31Z,login malware-download shell-commands,ssh,KR,AS4766 Korea Telecom,84,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
-2.57.121.25,attacker,2026-10-29T14:26:03Z,2026-11-09T03:39:53Z,login,ssh,GB,AS47890 UNMANAGED LTD,1158,
-193.24.211.219,attacker,2026-11-03T01:25:16Z,2026-11-09T03:38:00Z,login tunnel,ssh,HK,AS215929 Data Campus Limited,73,
-143.110.153.215,attacker,2026-10-29T12:16:43Z,2026-11-09T03:37:46Z,login shell-commands,telnet,US,"AS14061 DigitalOcean, LLC",262,
-2.57.121.112,attacker,2026-10-29T15:44:16Z,2026-11-09T03:35:25Z,login,ssh,GB,AS47890 UNMANAGED LTD,1375,
 64.89.163.137,attacker,2026-10-29T19:06:27Z,2026-11-09T03:31:16Z,service-bruteforce,postgres,DE,"AS401626 Netiface America, Inc.",16,
-93.123.109.109,attacker,2026-10-31T12:33:22Z,2026-11-09T03:29:42Z,service-bruteforce,vnc,AD,AS48090 TECHOFF SRV LIMITED,416,
 89.215.73.236,infected-device,2026-11-09T03:28:46Z,2026-11-09T03:28:50Z,login,telnet,BG,AS13124 A1 Bulgaria EAD,2,
-185.87.121.1,attacker,2026-11-06T04:10:57Z,2026-11-09T03:24:10Z,login tunnel,ssh,TR,AS153810 MDN TECHNOLOGY LTD,52,
 45.90.163.37,attacker,2026-10-31T10:24:48Z,2026-11-09T03:14:56Z,login malware-download shell-commands,telnet,FR,AS39421 Sapinet SAS,1696,048d2f354e35b1f6ecb6a6554016f9643e2c456bf9ea5b3d79e8bfd59fb4ca5c 185a78a83641d0abe00a04e69c45611f10e0095bb957618571cd172e75db93ae 1d175e3be95220d0dadc1c8a4c501c06376d90d4e878d798b90731371f7278b7 3986542ca05af29d67d9f1fa9c40b0f794334549b22e34ebd341f9460b56b198 58b070fb7173b12de35917b8b949dccb8b52fdee3a7e2adf0dfcbfe043a60516 a48d5f63bb0727aad2d66f74b04dde79ebc39372b1c400d17051168d41fcb005 dafbd79d183b0d4abd915f17daa6be9dfa437a688a1dedde9276e4e481e6b020 f3223d582b73ceae6cd3f35413554b18714b51524141149ceac811a3e341ec27
 119.152.234.43,infected-device,2026-11-09T03:14:47Z,2026-11-09T03:14:54Z,login shell-commands,telnet,PK,AS136525 Wancom (Pvt) Ltd.,38,
 77.239.124.155,attacker,2026-11-09T01:41:17Z,2026-11-09T03:09:47Z,login shell-commands,ssh,FR,AS198364 BANATSYNC SRL,961,
@@ -56,7 +65,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 193.107.98.116,infected-device,2026-11-09T00:24:57Z,2026-11-09T00:26:11Z,login shell-commands,telnet,MD,AS48480 S.C. AltNet C.C. S.R.L.,79,
 125.228.162.132,infected-device,2026-11-09T00:18:56Z,2026-11-09T00:19:02Z,login shell-commands,telnet,TW,AS3462 Data Communication Business Group,38,
 96.126.117.80,attacker,2026-11-05T10:59:35Z,2026-11-09T00:18:52Z,login,telnet,US,AS63949 Akamai Connected Cloud,28,
-85.11.167.125,attacker,2026-11-03T13:04:26Z,2026-11-08T23:54:02Z,login shell-commands,ssh,NL,AS197170 TechTies Inc.,49,
 109.160.32.111,attacker,2026-11-08T21:44:29Z,2026-11-08T23:51:32Z,login shell-commands,ssh,NL,AS198364 BANATSYNC SRL,1256,
 151.67.129.126,infected-device,2026-11-08T23:48:44Z,2026-11-08T23:48:44Z,login,telnet,IT,AS1267 WIND TRE S.P.A.,1,
 193.46.255.86,attacker,2026-10-29T14:22:28Z,2026-11-08T23:46:43Z,login tunnel,ssh,GB,AS47890 UNMANAGED LTD,656,
@@ -92,7 +100,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 160.251.202.50,attacker,2026-11-08T19:55:20Z,2026-11-08T21:46:06Z,login malware-download shell-commands,ssh,JP,"AS58791 GMO Internet, Inc.",84,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
 85.11.167.204,attacker,2026-11-08T21:02:08Z,2026-11-08T21:38:15Z,login shell-commands,ssh,NL,AS197170 TechTies Inc.,70,
 103.131.61.163,infected-device,2026-10-30T20:12:50Z,2026-11-08T21:20:47Z,login shell-commands,telnet,ID,AS138126 PT. NEWTON CIPTA INFORMATIKA,241,
-85.11.167.7,attacker,2026-10-29T04:39:35Z,2026-11-08T21:09:57Z,service-bruteforce,postgres,NL,AS197170 TechTies Inc.,639,
 210.89.35.53,infected-device,2026-11-08T20:50:08Z,2026-11-08T20:50:15Z,login shell-commands,telnet,IN,AS134674 TATA PLAY BROADBAND PRIVATE LIMITED,38,
 195.3.220.7,attacker,2026-11-08T20:49:34Z,2026-11-08T20:49:34Z,login,ssh,PL,AS201814 MEVSPACE sp. z o.o.,1,
 196.171.18.96,infected-device,2026-11-08T20:41:48Z,2026-11-08T20:41:48Z,login,telnet,TG,"AS24691 TogoTelecom, Togo",1,
@@ -318,7 +325,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 207.248.200.131,infected-device,2026-11-07T19:08:27Z,2026-11-07T19:08:38Z,login shell-commands,telnet,CL,AS27901 Pacifico Cable SPA.,39,
 172.190.13.234,attacker,2026-11-07T17:17:18Z,2026-11-07T19:06:51Z,login malware-download shell-commands,ssh,US,AS8075 Microsoft Corporation,79,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
 39.144.94.253,infected-device,2026-11-07T19:04:34Z,2026-11-07T19:04:47Z,login shell-commands,telnet,CN,"AS9808 China Mobile Communications Group Co., Ltd.",12,
-138.199.15.161,attacker,2026-11-01T15:00:35Z,2026-11-07T19:00:20Z,service-bruteforce,vnc,FR,AS60068 Datacamp Limited,33,
 43.226.40.202,attacker,2026-11-07T18:49:49Z,2026-11-07T18:49:49Z,login,ssh,CN,AS134762 CHINANET Liaoning province Dalian MAN network,1,
 131.161.65.50,infected-device,2026-11-07T18:46:36Z,2026-11-07T18:46:46Z,login shell-commands,telnet,BR,AS264369 IOL REDE DE PROVEDORES LTDA,38,
 129.121.98.14,attacker,2026-11-07T17:22:24Z,2026-11-07T18:28:46Z,login malware-download shell-commands,ssh,US,AS31898 Oracle Corporation,79,01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b a8460f446be540410004b1a8db4083773fa46f7fe76fa84219c93daa1669f8f2
@@ -735,7 +741,6 @@ ip,list,first_seen,last_seen,activity,protocols,country,asn,events,samples_sha25
 109.160.32.163,attacker,2026-11-05T05:35:51Z,2026-11-05T07:48:19Z,login shell-commands,ssh,NL,AS198364 BANATSYNC SRL,1249,
 123.201.91.128,infected-device,2026-11-05T07:39:10Z,2026-11-05T07:39:17Z,login shell-commands,telnet,IN,AS18207 YOU Broadband & Cable India Ltd.,38,
 123.252.234.206,infected-device,2026-11-05T07:37:47Z,2026-11-05T07:38:06Z,login shell-commands,telnet,IN,AS134540 Tata Teleservices (Maharashtra) Ltd,40,
-65.49.1.172,attacker,2026-11-01T02:03:47Z,2026-11-05T07:17:10Z,login,telnet,US,AS6939 Hurricane Electric LLC,6,
 89.151.188.52,infected-device,2026-11-05T06:56:27Z,2026-11-05T06:56:27Z,login,telnet,RU,AS12389 PJSC Rostelecom,1,
 187.14.82.62,attacker,2026-11-05T06:52:55Z,2026-11-05T06:52:58Z,service-bruteforce,vnc,LV,AS207137 PacketHub S.A.,3,
 64.89.163.163,attacker,2026-11-01T04:19:27Z,2026-11-05T06:52:57Z,service-bruteforce,mysql,DE,"AS401626 Netiface America, Inc.",16,
